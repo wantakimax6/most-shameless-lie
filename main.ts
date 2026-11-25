@@ -24,6 +24,9 @@ import { fileURLToPath } from "node:url";
 const LIE = "Your backup never existed.";
 
 const text = LIE.trim();
+if (text.length === 0) {
+  throw new Error("entry must not be only white space");
+}
 const wordCount = text.split(/\s+/).length;
 
 if (wordCount < 1 || wordCount > 5) {
